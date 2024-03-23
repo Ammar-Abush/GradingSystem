@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+</head>
+<body>
+<h2>Welcome, <span th:text="${student.getFirstName()} + ' ' + ${student.getLastName()}" ></span>!</h2>
+<h2>Enrollments:</h2>
+<ul th:each="enrollment : ${enrollments}">
+    <li th:text="'Course: ' + ${enrollment.title} +', Grade: ' + ${enrollment.grade} + ', Mark: ' +  ${enrollment.mark}+ ', Average: ' + ${enrollment.average} + ', Highest: ' +${enrollment.highest} +', Lowest: ' + ${enrollment.lower}" ></li>
+
+</ul>
+
+<a th:href="@{/student/logout(ssn=${student.ssn})}">Logout</a>
+
+</body>
+</html>

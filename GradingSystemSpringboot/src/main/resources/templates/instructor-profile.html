@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instructor</title>
+</head>
+<body>
+    <h1>Welcome <span th:text="${instructor.getInstructorRank()} + ' ' + ${instructor.getFirstName()} + ' ' + ${instructor.getLastName}" ></span></h1>
+    <h2>Courses you teach:</h2>
+    <ul th:each="course : ${courses}">
+        <a th:href="@{/instructor/course(courseId=${course.getCourseId()}, isn=${instructor.getIsn()})}">
+            <li th:text="'Course: ' + ${course.title} + ', Course ID: ' + ${course.getCourseId()} + ', Number of Students: ' +  ${course.getNumOfStudents()} + ', Credits: ' + ${course.getNumOfCredits()}"></li>
+        </a>
+
+
+    </ul>
+
+    <a th:href="@{/instructor/logout(isn=${instructor.isn})}">Logout</a>
+</body>
+</html>

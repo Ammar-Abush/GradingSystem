@@ -1,0 +1,91 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: ammar
+  Date: ٢٠‏/٢‏/٢٠٢٤
+  Time: ٩:١١ م
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Admin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Register a student</h1>
+    <form action="AdminPage" method="post">
+        <label for="ssn">SSN:</label>
+        <input type="text" name="ssn" required id = "ssn"><br>
+
+        <label for="firstName">First Name:</label>
+        <input type="text" name="firstName" required id = "firstName"><br>
+
+        <label for="mi">Middle Name:</label>
+        <input type="text" name="mi" required id = "mi"><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" name="lastName" required id = "lastName"><br>
+
+        <label for="birthDate">Birth Date:</label>
+        <input type="date" name="birthDate" required id = "birthDate"><br>
+
+        <label for="street">Street:</label>
+        <input type="text" name="street" required id = "street"><br>
+
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone" required id = "phone"><br>
+
+        <label for="zipcode">Zip Code:</label>
+        <input type="text" name="zipcode" required id = "zipcode"><br>
+
+        <label for="deptId">Department ID:</label>
+        <input type="text" name="deptId" required id = "deptId"><br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" required id = "password"><br>
+
+        <input type="submit" value="Register">
+    </form>
+    <a href = "AdminLogout">Logout</a>
+</body>
+</html>

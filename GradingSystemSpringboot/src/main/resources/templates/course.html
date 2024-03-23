@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        select {
+            appearance: none;
+            background: url('https://cdn.iconscout.com/icon/free/png-256/arrow-drop-down-1767478-1502396.png') no-repeat right #fff;
+            background-size: 20px;
+            padding-right: 40px;
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            background-color: #2980b9;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="/instructor/course?courseId=courseId&isn=isn" method="post">
+        <label for="studentSsn">Select Student:</label>
+        <select name="studentSsn" id="studentSsn">
+            <!-- Iterate over the list of students and generate options dynamically -->
+            <th:block th:each="student : ${students}">
+                <option th:value="${student.ssn}" th:text="${student.firstName + ' ' + student.lastName}"></option>
+            </th:block>
+        </select>
+
+        <label for="mark">Mark:</label>
+        <input type="number" name="mark" id="mark" required max="100" min="0">
+
+        <label for="grade">Grade:</label>
+        <select name="grade" id="grade">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+        </select>
+
+        <input type="hidden" name="courseId" th:value="${param.courseId}">
+        <input type = "hidden" name = "isn" th:value="${param.isn}">
+
+        <input type="submit" value="Assign Mark">
+
+    </form>
+    <p th:text="${Message}"></p>
+
+</body>
+</html>
